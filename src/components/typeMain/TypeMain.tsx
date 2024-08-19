@@ -2,12 +2,12 @@
 
 import React, { useEffect, useRef, useState } from 'react'
 import genereateSequence from '~/utils/genereateSequence'
-import { mainContext } from '~/context/mainContext'
+import { useMainContext } from '~/context/mainContext'
 
 const TypeMain = () => {
     const [textData, setTextData] = useState('');
     const textRef = useRef<HTMLParagraphElement>(null);
-    const { isPunctuation, isNumber, time, type, wordLen } = mainContext()
+    const { isPunctuation, isNumber, time, type, wordLen } = useMainContext()
 
     useEffect(() => {
         let generatedText =" " 

@@ -11,20 +11,20 @@ export interface MainContextType {
     setTime: (value: number) => void;
     wordLen: number;
     setWordLen: (value: number) => void;
-}
-
-// Provide a default value (optional)
-export const mainContextDefaults: MainContextType = {
-    setType: () => { },
-    type: 'default',
+  }
+  
+  export const mainContextDefaults: MainContextType = {
+    setType: (value: string) => {},
+    type: 'time',
     isPunctuation: false,
-    setIsPunctuation: () => { },
+    setIsPunctuation: (value: boolean) => {},
     isNumber: false,
-    setIsNumber: () => { },
+    setIsNumber: (value: boolean) => {},
     windowSize: 0,
-    setWindowSize: () => { },
-    time: 0,
-    setTime: () => { },
-    wordLen: 0,
-    setWordLen: () => { },
-};
+    setWindowSize: (value: number) => {},
+    time: 30,
+    setTime: (value: number) => {},
+    wordLen: 50,
+    setWordLen: (value: number) => {},
+  };
+  

@@ -3,12 +3,12 @@
 import React from 'react'
 import { AtSign, Hash, Timer, ALargeSmall, Wrench } from 'lucide-react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { mainContext } from '~/context/mainContext'
+import { useMainContext } from '~/context/mainContext'
 
 
 const TypeControls = () => {
-    const { windowSize } = mainContext()
-    const { isPunctuation, setIsPunctuation, isNumber, setIsNumber, time, setTime, type, setType, wordLen, setWordLen } = mainContext()
+    const { windowSize } = useMainContext()
+    const { isPunctuation, setIsPunctuation, isNumber, setIsNumber, time, setTime, type, setType, wordLen, setWordLen } = useMainContext()
     const timeChoices = [15, 30, 60, 120]
     const wordLenChoices = [10, 25, 50, 100]
 
