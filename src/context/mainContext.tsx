@@ -1,16 +1,21 @@
 'use client'
 
-import React, { createContext, useState, useContext, useEffect } from 'react';
+import React, { createContext, useState, useContext, useEffect, ReactNode } from 'react';
+import { MainContextType, mainContextDefaults } from './mainTypes';
 
-const EventContext = createContext();
+export const EventContext = createContext<MainContextType>(mainContextDefaults);
 
-export const EventProvider = ({ children }) => {
-    const [windowSize, setWindowSize] = useState(window.innerWidth)
-    const  [type,setType] = useState('time')
-    const [isPunctuation,setIsPunctuation] = useState(false);
-    const [isNumber,setIsNumber] = useState(false);
-    const [time,setTime] = useState(30)
-    const [wordLen,setWordLen] = useState(50)
+interface EventProviderProps {
+  children: ReactNode;
+}
+
+export const EventProvider: React.FC<EventProviderProps> = ({ children }) => {
+    const [type, setType] = useState<string>('time');
+    const [isPunctuation, setIsPunctuation] = useState<boolean>(false);
+    const [isNumber, setIsNumber] = useState<boolean>(false);
+    const [windowSize, setWindowSize] = useState<number>(window.innerWidth);
+    const [time, setTime] = useState<number>(30);
+    const [wordLen, setWordLen] = useState<number>(50);
 
     useEffect(() => {
         const handleResize = () => {
@@ -25,12 +30,12 @@ export const EventProvider = ({ children }) => {
 
     return (
         <EventContext.Provider value={{
-            windowSize,setWindowSize,
-            type,setType,
-            time,setTime,
-            wordLen,setWordLen,
-            isNumber,setIsNumber,
-            isPunctuation,setIsPunctuation
+            windowSize, setWindowSize,
+            type, setType,
+            time, setTime,
+            wordLen, setWordLen,
+            isNumber, setIsNumber,
+            isPunctuation, setIsPunctuation
         }}>
             {children}
         </EventContext.Provider>
